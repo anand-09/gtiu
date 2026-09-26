@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTIU architecture diagram</title>
+  <style>
+    body { margin: 0; font-family: Inter, Helvetica, Arial, sans-serif; background: #f7f7f8; color: #111; }
+    header { padding: 22px 24px 8px; text-align: center; }
+    h1 { font-size: 1.25rem; margin: 0 0 8px; }
+    p { color: #444; margin: 0 0 14px; }
+    .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    a.btn { background: #0f766e; color: #fff; text-decoration: none; padding: 10px 16px; border-radius: 10px; font-weight: 600; }
+    a.btn.alt { background: #fff; color: #0f766e; border: 1px solid #0f766e; }
+    .stage { background: #fff; margin: 0 auto 32px; padding: 12px; max-width: 1600px; box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+    .stage svg { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GTIU architecture (same figure, viewable here)</h1>
+    <p>This page always shows the diagram. Use the buttons if you want to edit it in draw.io.</p>
+    <div class="btns">
+      <a class="btn" href="assets/gtiu_architecture_e2e.drawio" download>Download .drawio file</a>
+      <a class="btn alt" href="https://app.diagrams.net/" target="_blank" rel="noopener">Open draw.io</a>
+      <a class="btn alt" href="index.html">Back to project page</a>
+    </div>
+    <p style="font-size:0.9rem">In draw.io: <b>File → Open Existing Diagram → Device</b> → choose the downloaded <code>gtiu_architecture_e2e.drawio</code>.</p>
+  </header>
+  <div class="stage">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1580 980" font-family="Helvetica, Arial, sans-serif">
+      <rect width="1580" height="980" fill="#ffffff"/>
+      <rect x="20" y="40" width="1540" height="400" rx="10" fill="#F6F1FB" stroke="#C4B5E0" stroke-width="2"/>
+      <rect x="480" y="18" width="420" height="36" rx="18" fill="#6D5BA8"/>
+      <text x="690" y="42" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">1. End-to-End Learning (Gradient Flow)</text>
+      <text x="60" y="220" text-anchor="middle" fill="#4A2C7A" font-size="12" font-weight="700">Unified</text>
+      <text x="60" y="236" text-anchor="middle" fill="#4A2C7A" font-size="12" font-weight="700">Loss L</text>
+      <line x1="60" y1="198" x2="60" y2="155" stroke="#6D5BA8" stroke-width="2"/>
+
+      <rect x="110" y="70" width="210" height="350" rx="8" fill="#FFF7F7" stroke="#E8B4B4"/>
+      <rect x="122" y="82" width="186" height="28" rx="10" fill="#F8D4D4" stroke="#E8B4B4"/>
+      <text x="215" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="#5A2A2A">Loss Components</text>
+      <rect x="128" y="128" width="174" height="28" rx="14" fill="#fff" stroke="#C8C8C8"/><text x="215" y="147" text-anchor="middle" font-size="12">Tracking Loss</text>
+      <rect x="128" y="166" width="174" height="28" rx="14" fill="#fff" stroke="#C8C8C8"/><text x="215" y="185" text-anchor="middle" font-size="12">Safety Loss</text>
+      <rect x="128" y="204" width="174" height="28" rx="14" fill="#fff" stroke="#C8C8C8"/><text x="215" y="223" text-anchor="middle" font-size="12">Game-theoretic Loss</text>
+      <rect x="128" y="242" width="174" height="28" rx="14" fill="#fff" stroke="#C8C8C8"/><text x="215" y="261" text-anchor="middle" font-size="12">Comfort / Smoothness Loss</text>
+      <rect x="128" y="280" width="174" height="28" rx="14" fill="#fff" stroke="#C8C8C8"/><text x="215" y="299" text-anchor="middle" font-size="12">Others (e.g., progress)</text>
+
+      <rect x="334" y="70" width="270" height="350" rx="8" fill="#EAF3FC" stroke="#8FB7DE"/>
+      <rect x="346" y="82" width="246" height="40" rx="10" fill="#C9DFF5" stroke="#8FB7DE"/>
+      <text x="469" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#1E4A7A">Level-k Nash Predictor</text>
+      <text x="469" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#1E4A7A">(Trainable)</text>
+      <rect x="356" y="160" width="40" height="14" rx="5" fill="#1E6AA8"/>
+      <circle cx="425" cy="153" r="5" fill="#2B74C7"/><circle cx="425" cy="171" r="5" fill="#2B74C7"/><circle cx="425" cy="189" r="5" fill="#2B74C7"/>
+      <circle cx="451" cy="161" r="5" fill="#2B74C7"/><circle cx="451" cy="181" r="5" fill="#2B74C7"/>
+      <circle cx="477" cy="153" r="5" fill="#2B74C7"/><circle cx="477" cy="171" r="5" fill="#2B74C7"/><circle cx="477" cy="189" r="5" fill="#2B74C7"/>
+      <line x1="482" y1="153" x2="580" y2="140" stroke="#2B74C7" stroke-dasharray="4 3"/>
+      <line x1="482" y1="171" x2="580" y2="171" stroke="#E07A1A" stroke-dasharray="4 3"/>
+      <line x1="482" y1="189" x2="580" y2="202" stroke="#2F9A5A" stroke-dasharray="4 3"/>
+      <text x="469" y="380" text-anchor="middle" font-size="12" fill="#1E4A7A">Produces predictions</text>
+      <text x="469" y="396" text-anchor="middle" font-size="12" fill="#1E4A7A">and intent distribution</text>
+
+      <rect x="618" y="70" width="270" height="350" rx="8" fill="#FFF6E8" stroke="#E0A04A"/>
+      <rect x="630" y="82" width="246" height="40" rx="10" fill="#F8D9A0" stroke="#E0A04A"/>
+      <text x="753" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#7A3E00">Differentiable NMPC</text>
+      <text x="753" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#7A3E00">(Trainable)</text>
+      <text x="642" y="164" font-size="13" font-style="italic">s_t</text>
+      <circle cx="683" cy="149" r="4.5" fill="#E07A1A"/><circle cx="683" cy="165" r="4.5" fill="#E07A1A"/><circle cx="683" cy="181" r="4.5" fill="#E07A1A"/>
+      <circle cx="705" cy="157" r="4.5" fill="#E07A1A"/><circle cx="705" cy="173" r="4.5" fill="#E07A1A"/>
+      <circle cx="727" cy="149" r="4.5" fill="#E07A1A"/><circle cx="727" cy="165" r="4.5" fill="#E07A1A"/><circle cx="727" cy="181" r="4.5" fill="#E07A1A"/>
+      <text x="812" y="164" font-size="13" font-style="italic">w_t</text>
+      <text x="640" y="224" font-size="11" font-weight="700" fill="#7A3E00">NMPC Optimization (Differentiable)</text>
+      <polyline points="640,250 700,244 760,256 810,248 850,250" fill="none" stroke="#111" stroke-width="1.5"/>
+      <rect x="636" y="330" width="234" height="64" rx="6" fill="#fff" stroke="#E0A04A"/>
+      <text x="648" y="354" font-size="12">Trajectory  X*_t:t+H</text>
+      <text x="648" y="374" font-size="12">Control  U*_t:t+H-1</text>
+
+      <rect x="902" y="70" width="270" height="350" rx="8" fill="#FDECEA" stroke="#D98880"/>
+      <rect x="914" y="82" width="246" height="40" rx="10" fill="#F5C4C0" stroke="#D98880"/>
+      <text x="1037" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#7A1E1E">Game-CBF</text>
+      <text x="1037" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#7A1E1E">(Non-Trainable)</text>
+      <rect x="903" y="128" width="268" height="80" fill="#F8D0CC" opacity="0.7"/>
+      <rect x="930" y="158" width="40" height="14" rx="5" fill="#1E6AA8"/>
+      <polygon points="974,165 1044,144 1044,186" fill="#F5B7B1" stroke="#C0392B"/>
+      <text x="1056" y="156" font-size="12" font-style="italic">Dh_t</text>
+      <rect x="920" y="330" width="234" height="70" rx="6" fill="#fff" stroke="#D98880"/>
+      <text x="932" y="350" font-size="12" font-weight="700">Outputs:</text>
+      <text x="932" y="368" font-size="12">Safe Trajectory  Xhat_t:t+H</text>
+      <text x="932" y="386" font-size="12">Safe Control  Uhat_t:t+H-1</text>
+
+      <rect x="1186" y="70" width="356" height="350" rx="8" fill="#F3EEF9" stroke="#B39DDB"/>
+      <rect x="1198" y="82" width="332" height="40" rx="10" fill="#E0D4F2" stroke="#B39DDB"/>
+      <text x="1364" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#3D246B">Control and Plant</text>
+      <text x="1364" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#3D246B">(Simulator / Vehicle)</text>
+      <rect x="1320" y="158" width="48" height="16" rx="5" fill="#111"/>
+      <text x="1210" y="328" font-size="12">Apply first control u0</text>
+      <text x="1210" y="346" font-size="12">to vehicle / simulator</text>
+      <text x="1210" y="374" font-size="12">Observe next state x_t+1</text>
+      <text x="1210" y="392" font-size="12">and update history H_t+1</text>
+
+      <rect x="20" y="470" width="1540" height="370" rx="10" fill="#F3F9F4" stroke="#7EBB88" stroke-width="2"/>
+      <rect x="430" y="448" width="520" height="36" rx="18" fill="#3D8B4A"/>
+      <text x="690" y="472" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">2. Closed-Loop Execution (Inference / Deployment)</text>
+
+      <rect x="36" y="500" width="230" height="320" rx="8" fill="#fff" stroke="#B0B0B0"/>
+      <rect x="48" y="512" width="206" height="40" rx="10" fill="#F0F0F0" stroke="#B0B0B0"/>
+      <text x="151" y="528" text-anchor="middle" font-size="13" font-weight="700">Observations</text>
+      <text x="151" y="545" text-anchor="middle" font-size="12" font-weight="700">At time t</text>
+      <rect x="60" y="590" width="180" height="20" fill="#E6E6E6" stroke="#C8C8C8"/>
+      <rect x="138" y="572" width="20" height="60" fill="#E6E6E6" stroke="#C8C8C8"/>
+      <rect x="170" y="593" width="26" height="10" rx="3" fill="#1E6AA8"/>
+      <rect x="80" y="594" width="20" height="9" rx="3" fill="#888"/>
+      <text x="56" y="680" font-size="12">Ego state x(0)</text>
+      <text x="56" y="700" font-size="12">Neighbors x(i), i=1..N</text>
+      <text x="56" y="720" font-size="12">HD map M_t</text>
+
+      <rect x="280" y="500" width="260" height="320" rx="8" fill="#EAF3FC" stroke="#8FB7DE"/>
+      <rect x="292" y="512" width="236" height="40" rx="10" fill="#C9DFF5" stroke="#8FB7DE"/>
+      <text x="410" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#1E4A7A">Level-k Nash Predictor</text>
+      <text x="410" y="545" text-anchor="middle" font-size="12" font-weight="700" fill="#1E4A7A">(Trainable)</text>
+      <rect x="300" y="600" width="40" height="14" rx="5" fill="#1E6AA8"/>
+      <rect x="400" y="590" width="28" height="11" rx="4" fill="#888"/>
+      <rect x="440" y="604" width="28" height="11" rx="4" fill="#888"/>
+      <rect x="480" y="616" width="28" height="11" rx="4" fill="#888"/>
+      <text x="300" y="760" font-size="12" fill="#1E4A7A">Predicted trajectories Xhat</text>
+      <text x="300" y="780" font-size="12" fill="#1E4A7A">Intent uncertainty P_t</text>
+
+      <rect x="554" y="500" width="260" height="320" rx="8" fill="#FFF6E8" stroke="#E0A04A"/>
+      <rect x="566" y="512" width="236" height="40" rx="10" fill="#F8D9A0" stroke="#E0A04A"/>
+      <text x="684" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#7A3E00">Differentiable NMPC</text>
+      <text x="684" y="545" text-anchor="middle" font-size="12" font-weight="700" fill="#7A3E00">(Trainable)</text>
+      <text x="572" y="606" font-size="13" font-style="italic">s_t</text>
+      <circle cx="614" cy="590" r="4" fill="#E07A1A"/><circle cx="614" cy="606" r="4" fill="#E07A1A"/><circle cx="614" cy="622" r="4" fill="#E07A1A"/>
+      <circle cx="634" cy="598" r="4" fill="#E07A1A"/><circle cx="634" cy="614" r="4" fill="#E07A1A"/>
+      <circle cx="654" cy="590" r="4" fill="#E07A1A"/><circle cx="654" cy="606" r="4" fill="#E07A1A"/><circle cx="654" cy="622" r="4" fill="#E07A1A"/>
+      <text x="740" y="606" font-size="13" font-style="italic">w_t</text>
+      <path d="M576 660 C650 650 720 670 790 660" fill="none" stroke="#2B74C7" stroke-width="2"/>
+      <text x="566" y="760" font-size="12" fill="#7A3E00">Optimal trajectory X*</text>
+      <text x="566" y="780" font-size="12" fill="#7A3E00">Optimal control U*</text>
+
+      <rect x="828" y="500" width="260" height="320" rx="8" fill="#FDECEA" stroke="#D98880"/>
+      <rect x="840" y="512" width="236" height="40" rx="10" fill="#F5C4C0" stroke="#D98880"/>
+      <text x="958" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#7A1E1E">Game-CBF</text>
+      <text x="958" y="545" text-anchor="middle" font-size="12" font-weight="700" fill="#7A1E1E">(Non-Trainable)</text>
+      <rect x="829" y="556" width="258" height="70" fill="#F8D0CC" opacity="0.7"/>
+      <rect x="850" y="582" width="40" height="14" rx="5" fill="#1E6AA8"/>
+      <polygon points="894,589 964,568 964,610" fill="#F5B7B1" stroke="#C0392B"/>
+      <text x="976" y="580" font-size="12" font-style="italic">Dh_t</text>
+      <text x="840" y="760" font-size="12" fill="#7A1E1E">Safe trajectory Xhat</text>
+      <text x="840" y="780" font-size="12" fill="#7A1E1E">Safe control Uhat</text>
+
+      <rect x="1102" y="500" width="440" height="320" rx="8" fill="#F3EEF9" stroke="#B39DDB"/>
+      <rect x="1116" y="512" width="412" height="40" rx="10" fill="#E0D4F2" stroke="#B39DDB"/>
+      <text x="1322" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#3D246B">Control and Plant</text>
+      <text x="1322" y="545" text-anchor="middle" font-size="12" font-weight="700" fill="#3D246B">(Autonomous Vehicle / Simulator)</text>
+      <rect x="1270" y="600" width="52" height="18" rx="6" fill="#1E6AA8"/>
+      <line x1="1124" y1="680" x2="1520" y2="680" stroke="#888" stroke-dasharray="5 4"/>
+      <text x="1322" y="740" text-anchor="middle" font-size="13">Apply first control u0</text>
+      <text x="1322" y="760" text-anchor="middle" font-size="13">Next observation (t+1)</text>
+
+      <text x="88" y="884" font-size="11">Forward Pass (Data Flow)</text>
+      <text x="88" y="912" font-size="11">Backward Pass (Gradient Flow)</text>
+      <text x="88" y="940" font-size="11">Closed-Loop Feedback</text>
+      <rect x="310" y="872" width="22" height="16" fill="#C9DFF5" stroke="#8FB7DE"/>
+      <text x="338" y="884" font-size="11">Prediction (Intent and Trajectories)</text>
+      <rect x="310" y="900" width="22" height="16" fill="#F8D9A0" stroke="#E0A04A"/>
+      <text x="338" y="912" font-size="11">Optimization (Planning and Control)</text>
+      <rect x="310" y="928" width="22" height="16" fill="#F5C4C0" stroke="#D98880"/>
+      <text x="338" y="940" font-size="11">Safety (Game-Theoretic)</text>
+      <rect x="600" y="872" width="22" height="16" fill="#E0D4F2" stroke="#B39DDB"/>
+      <text x="628" y="884" font-size="11">Execution (Real World / Simulator)</text>
+      <text x="900" y="884" font-size="11" fill="#C0392B">Trainable: parameters updated via gradient descent</text>
+      <text x="900" y="904" font-size="11" fill="#C0392B">Non-Trainable: no parameters to update; differentiable for gradient flow only</text>
+    </svg>
+  </div>
+</body>
+</html>
